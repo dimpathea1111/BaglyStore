@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections Page</title>
+    <link rel="stylesheet" href="../src/output.css">
+   <script src="../src/dark.js"></script>
+
+</head>
+<body class="bg-white text-black dark:bg-black dark:text-white transition duration-300">
+
+<nav class=" dark:black bg-amber-600 dark:text-white bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <!-- <img src="" class="h-7" alt="Flowbite Logo"> -->
+        <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">BagLy</span>
+    </a>
+ 
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <!-- <button type="button" class="bg-amber-600 bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-black text-md px-3 py-2 focus:outline-none"  onclick="toggleDark()">Dark Mode</button> -->
+         <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.<path d="M303.3 112.7C196.2 121.2 112 210.8 112 320C112 434.9 205.1 528 320 528C353.3 528 384.7 520.2 412.6 506.3C309.2 482.9 232 390.5 232 280C232 214.2 259.4 154.9 303.3 112.7zM64 320C64 178.6 178.6 64 320 64C339.4 64 358.4 66.2 376.7 70.3C386.6 72.5 394 80.8 395.2 90.8C396.4 100.8 391.2 110.6 382.1 115.2C321.5 145.4 280 207.9 280 280C280 381.6 362.4 464 464 464C469 464 473.9 463.8 478.8 463.4C488.9 462.6 498.4 468.2 502.6 477.5C506.8 486.8 504.6 497.6 497.3 504.6C451.3 548.8 388.8 576 320 576C178.6 576 64 461.4 64 320z"/></svg> -->
+      <button onclick="toggleDark()" 
+  class="p-2 rounded-base hover:bg-neutral-secondary-soft transition">
+
+  <!-- Sun Icon (Light mode) -->
+  <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M12 3v1m0 16v1m8.66-10H21m-18 0H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 0l-.7.7M6.34 17.66l-.7.7M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+  </svg>
+
+  <!-- Moon Icon (Dark mode) -->
+  <svg id="moonIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M21 12.79A9 9 0 1111.21 3 
+         7 7 0 0021 12.79z"/>
+  </svg>
+
+</button>
+      
+         <!-- <button type="button" class="bg-amber-600 bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-black text-md px-3 py-2 focus:outline-none">Login</button> -->
+         <a href="login.html" type="button" class="bg-amber-200 bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-black text-md px-3 py-2 focus:outline-none rounded-sm ">Login</a>
+        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+        </button>
+    </div>
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-default rounded-base bg-neutral-secondary-soft md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-neutral-primary">
+        <li>
+          <a href="index.html" class="block py-2 px-3 text-black bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0 dark:text-white hover:bg-amber-600 " aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="shop.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Shop</a>
+        </li>
+        <li>
+          <a href="collection.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Collections</a>
+        </li>
+         <li>
+          <a href="about.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About Us</a>
+        </li>
+        <li>
+          <a href="contact.html" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- banner  -->
+<div class="relative h-[60vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="/photo/banner1.jpeg" alt="collection" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone- dark:text-amber-400 text950/30 to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pb-16">
+            <p class="font-body text-xs tracking-[0.4em] uppercase text-amber-400 mb-3 fade-up" style="animation-delay: 0.1s" >Curated for you</p>
+            <h1 class="font-display text-6xl font-light text-white fade-up" style="animation-delay: 0.2s;">Out Collection</h1>
+        </div>
+    </div>
+</div>
+
+<!-- feature  -->
+ <section class="py-24 max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 item-center">
+        <div class="reveal">
+            <p class="font-body text-mdzzzzz tracking-[0.4em] uppercase text-amber-700 dark:text-amber-600 mb-4">Signature Collection</p>
+            <h2 class="font-display text-5xl font-light mb-6 leading-tight">The Heitage <br> <em>Serties</em></h2>
+            <p class="font-body font-light text-stone-600 dark:text-stone-400 leading-relaxed mb-4">          Made exclusively from full-grain cowhide leather, aged in a signature tobacco tone that deepens beautifully over time. Limited to 200 pieces per season.</p>
+            <p class="font-body font-light text-stone-600 dark:text-stone-400 leading-relaxed mb-4">          Made exclusively from full-grain cowhide leather, aged in a signature tobacco tone that deepens beautifully over time. Limited to 200 pieces per season.
+ </p>
+
+ <div class="flex gap-4">
+    <a href="shop.html" class="btn-primary">Shop Heritage</a>
+    <span class="font-body text-sm text-stone-500 self-center">8 pices . From $165</span>
+ </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 reveal">
+             <div class="aspect-[3/4] overflow-hidden rounded-sm">
+          <img src="../photo/bag16.webp" alt="Heritage Tote" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+       
+         <div class="aspect-[3/4] overflow-hidden rounded-sm mt-8">
+          <img src="../photo/bag15.jpg" alt="Heritage Crossbody" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        </div>
+    </div>
+ </section>
+
+
+
+
+ <!-- all product  -->
+  <!-- <section class="py-16 bg-stone-100 dark:bg-stone-900"> -->
+    <section class="py-24 max-w-7xl mx-auto px-6 bg-stone-100 dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <p class="font-body text-xs tracking-[0.4em] uppercase text-amber-700 dark:text-amber-500 mb-3">All Seasons</p>
+            <h2 class="font-display text-5xl font-light text-2xl">Browse by Collection</h2>
+        </div>
+    </div>
+
+    <div class="grid lg:grid-cols-4  md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
+        <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag15.jpg" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">Dior Pink Logo Shouler Bage</span>
+                <h3 class="font-display text-2xl font-light mb-2">
+Shipping calculated at checkout.</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Clean lines and minimal hardware. Built for the city dweller who demand both form and function</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">12 pieces . From $95</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+        <!-- 3 -->
+
+           <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag122.png" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">Dior 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Dior Woment</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">
+                Small Lady D-Joy Bag Plum Patent Cannage Calfskin | DIOR</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">14 pieces . From $195</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag19.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">Victoria bag</span>
+                <h3 class="font-display text-2xl font-light mb-2">Victoria bag</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Victoria bag in natural leather camel woman</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">13 pieces . From $145</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+        <!-- 4 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag20.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">BOTTEGA VENETA SMALL</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">BOTTEGA VENETA SMALL LOOP BAG CAMEL GOLD NEW SEASON PARLOUR X SYDNEY – Parlour X</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">6 pieces . From $295</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag21.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Channel Bags</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Shop Channel Bags - Premium Women's Handbags & Accessories</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">11 pieces . From $299</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag22.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Channel Bags Premium Women's</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Shop Channel Bags - Premium Women's Handbags & Accessories</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">8 pieces . From $195</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag23.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Mickey Mouse Flap Bagt</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Mickey Mouse Flap Bag: Elegant & Magical for Women</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">10 pieces . From $295</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag24.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Large Dior Toujourst</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Large Dior Toujours Bag Camel Macrocannage Calfskin | DIOR</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">9 pieces . From $289</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/25.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Gucci</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Gucci New Canvas Charisma Calfskin Crystal GG Monogram Small Bamboo 1947 Top Handle Bag</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">5 pieces . From $195</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag26.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Simone Studded Leather</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Simone Studded Leather Bag | ALC LTD</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">10 pieces . From $279</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+        <!-- 11 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag27.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">CHANEL 25</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">CHANEL 25 - Bags — Fashion | CHANEL</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">4 pieces . From $295</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag28.jpeg" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Hilary Woven Shoulder</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">c Bag - Camel | JW PEI</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">7 pieces . From $259</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag29.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Chanel</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Chanel - Mini 31 - Olive Green Calfskin CGHW - Brand New – Bagista</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">2 pieces . From $299</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+        <!-- 14 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag30.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">hanel 'Unlimited' Tote</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Chanel 'Unlimited' Tote Bag – Fashionably Yours/p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">9 pieces . From $239</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15  -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag31.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Chanel lands</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">The new Chanel lands in stores today: here are the 5 bags that will sell-out first
+</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">10 pieces . From $199</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+        <!-- 16 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag32.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">TCChanel Dusty Pink Belt</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">CChanel Dusty Pink Belt Bag ○ Labellov ○ Buy and Sell Authentic Luxury</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">11 pieces . From $295</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 17  -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/webp33.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">LOUIS VUITTON</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Newness Collection for Women | LOUIS VUITTON</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">5 pieces . From $299</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18 -->
+            <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag34.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2"> LOUIS VUITTON</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Small, Nano and Miniature Bags | LOUIS VUITTON</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">12 pieces . From $199</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 19  -->
+           <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag35.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Lady Dior bags</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Lady Dior bags - Women's Designer Bags | DIOR/p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">6 pieces . From $279</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 20  -->
+           <div class="collection-card bg-white dark:bg-stone-800 rounded-sm overflow-hidden reveal" data-delay="0">
+            <div class="aspect-[4/3] overflow-hidden ">
+                <img src="../photo/bag36.webp" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="p-6">
+                <span class="bage-new mb-3 inline-block ">SS 2026</span>
+                <h3 class="font-display text-2xl font-light mb-2">Dior Grey Embroidered</h3>
+                <p class="font-body text-sm text-stone-500 dark:text-stone-400 mb-4">Dior Grey Embroidered Leather Lady Dior Mini Handbag</p>
+                <div class="flex items-center justify-between">
+                    <p class="font-body text-sm font-medium">2 pieces . From $299</p>
+                    <a href="shop.html" class="underline-link font-bold text-xs tracking-widest uppercase p-2 rounded-md bg-amber-700">Shop</a>
+                </div>
+            </div>
+        </div>  
+
+
+        </div>
+    </div>
+  </section>
+
+
+
+  <section class="py-24 max-w-7xl mx-auto  px-6">
+    <div class="text-center mb-16">
+        <p class="font-body text-xs tracking-[0.4em] uppercase text-amber-700 dark:text-amber-500 mb-3"> Craftsmanship </p>
+            <h2 class="font-display text-5xl font-light">Meterials We Use</h2>
+      
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center p-8 border  border-stone-200 darkborder-stone-800 rounded-sm reveal">
+            <div class="w-24 h-24  mx-auto mb-4 rounded-full bg-amber-800"></div>
+            <h3 class="font-display text-xl font-light mb-2">Full-Grain Leather</h3>
+            <p class="font-body text-sm text-stone-500 ">The highest quality. Develops a beautiful patina over time.</p>
+    </div>
+
+        <div class="text-center p-8  border border-stone-200 darkborder-stone-800 rounded-sm reveal">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-amber-400"></div>
+            <h3 class="font-display text-xl font-light mb-2">Top-Grain Leather</h3>
+            <p class="font-body text-sm text-stone-500 ">Smoth and refined. Resisstant to stains and easy to maintain.</p>
+    </div>
+
+        <div class="text-center  border p-8 border-stone-200 darkborder-stone-800 rounded-sm reveal">
+            <div class="w-24 h-24  mx-auto mb-4 rounded-full bg-amber-900"></div>
+            <h3 class="font-display text-xl font-light mb-2">Waxed Canvas</h3>
+            <p class="font-body text-sm text-stone-500 ">Weather-resistant and lighweight. Perfect for travel bages.</p>
+        </div>
+
+        
+
+        </div>
+  </section>
+
+
+  <section class="py-16 bg-stone-100 dark:bg-stone-900 border-stone-200 dark:border-stone-800 ">
+    <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <div class="w-10 h-10 mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/></svg>
+            </div>
+            <p class="font-body text-sm font-medium">Free Shipping</p>
+            <p class="font-body text-xs text-stone-500 mt-1">On orders over $150</p>
+        </div>
+
+           <div>
+            <div class="w-10 h-10 mx-auto mb-3 flex items-center justify-center">
+          <svg class="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <p class="font-body text-sm font-medium">2-Year Warranty</p>
+            <p class="font-body text-xs text-stone-500 mt-1">Craftsmanship guaranteed</p>
+        </div>
+
+         <div>
+            <div class="w-10 h-10 mx-auto mb-3 flex items-center justify-center">
+          <svg class="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+            <p class="font-body text-sm font-medium">Free Returns</p>
+            <p class="font-body text-xs text-stone-500 mt-1">Within 30 days</p>
+        </div>
+
+          <div>
+            <div class="w-10 h-10 mx-auto mb-3 flex items-center justify-center">
+          <svg class="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+            </div>
+            <p class="font-body text-sm font-medium">Secure Payment</p>
+            <p class="font-body text-xs text-stone-500 mt-1">SSL encryted checkout</p>
+        </div>
+
+
+    </div>
+  </section>
+
+  
+
+<footer class="bg-neutral-primary-soft">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <a href="index.html" class="flex items-center">
+                  <img src="../photo/logo2.png" class="h-24 me-3" alt="Bangly Shop Logo" />
+                  <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap">Bangly Store</span>
+              </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Resources</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="index.html" class="hover:underline">Bangly </a>
+                      </li>
+                      <li>
+                          <a href="" class="hover:underline">Tailwind CSS</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Follow us</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="" class="hover:underline ">Github</a>
+                      </li>
+                      <li>
+                          <a href="" class="hover:underline">Discord</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Legal</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline">Privacy Policy</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-body sm:text-center">© 2025 <a href="index.html" class="hover:underline">Bangly Store</a>. All Rights Reserved.
+          </span>
+          <div class="flex mt-4 sm:justify-center sm:mt-0">
+            <a href="#" class="text-body hover:text-heading">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">Facebook page</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/></svg>
+                <span class="sr-only">Discord community</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"/></svg>
+            <span class="sr-only">Twitter page</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">GitHub account</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 10 10A10.009 10.009 0 0 0 12 2Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.093 20.093 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM10 3.707a8.82 8.82 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.755 45.755 0 0 0 10 3.707Zm-6.358 6.555a8.57 8.57 0 0 1 4.73-5.981 53.99 53.99 0 0 1 3.168 4.941 32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.641 31.641 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM12 20.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 15.113 13a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">Dribbble account</span>
+            </a>
+          </div>
+      </div>
+    </div>
+</footer>
+
+
+    
+</body>
+</html>
